@@ -7,6 +7,10 @@ const messages = document.querySelector(".messages");
 const message = messages.querySelectorAll(".message");
 const messageSearch = document.querySelector("#message-search");
 
+//search bar
+const head = document.querySelector(".head");
+const mainSearch = head.querySelectorAll(".ingo");
+
 //Theme
 const theme = document.querySelector("#theme");
 const themeModal = document.querySelector(".customize-theme");
@@ -203,3 +207,16 @@ back3.addEventListener("click", () => {
   back2.classList.remove("active");
   changeBG();
 });
+
+const feedSearch = () => {
+  const val = mainSearch.value.toLowerCase();
+  ingo.forEach((chat) => {
+    let name = chat.querySelector("h3").textContent.toLowerCase();
+    console.log(name);
+    if (name.indexOf(val) != -1) {
+      chat.style.display = "flex";
+    } else {
+      chat.style.display = "none";
+    }
+  });
+};
